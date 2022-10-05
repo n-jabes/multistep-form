@@ -5,8 +5,7 @@ import { UseContextProvider } from "./contexts/StepperContext";
 
 import Account from "./components/steps/Account";
 import Details from "./components/steps/Details";
-import Payment from "./components/steps/Payment";
-import Final from "./components/steps/Final";
+import Company from "./components/steps/Company";
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -14,8 +13,7 @@ function App() {
   const steps = [
     "Account Information",
     "Personal Details",
-    "Payment",
-    "Complete",
+    "Company Details",
   ];
 
   const displayStep = (step) => {
@@ -25,9 +23,7 @@ function App() {
       case 2:
         return <Details />;
       case 3:
-        return <Payment />;
-      case 4:
-        return <Final />;
+        return <Company />;
       default:
     }
   };
@@ -52,7 +48,7 @@ function App() {
       </div>
 
       {/* navigation button */}
-      {currentStep !== steps.length && (
+      {currentStep !== steps.length+1 && (
         <StepperControl
           handleClick={handleClick}
           currentStep={currentStep}
